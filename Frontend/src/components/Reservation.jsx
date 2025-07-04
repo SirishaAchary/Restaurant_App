@@ -17,8 +17,8 @@ const Reservation = () => {
   const handleReservation = async(e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        "http://localhost:3000/api/send",
+      const { data } = await axios.post("https://restaurant-app-wzc2.onrender.com/api/send", 
+
         { firstName, lastName, email, phone, date, time },
         {
           headers: {
@@ -36,7 +36,8 @@ const Reservation = () => {
       setDate("");
       navigate("/success");
     } catch (error) {
-      toast.error(error);
+      toast.error(error.response?.data?.message || "Something went wrong");
+
     }
   };
 

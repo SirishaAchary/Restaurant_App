@@ -12,7 +12,10 @@ dotenv.config({path: "./config/config.env"});
 
 app.use(
     cors({
-    origin:[process.env.FRONTEND_URL],
+   origin: [
+      "http://localhost:5173",
+      "https://restaurant-app-r3pj.vercel.app"
+    ],
     methods:["POST"],
     credentials:true,
 }));
